@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "./Link";
 import { FcLike, FcLikePlaceholder, FcShare } from "react-icons/fc";
-function Posts({ posts, viewtoggle, setViewToggle }) {
+function Posts({ posts, showFeedback, setShowFeedback }) {
   const postsPerPage = 5;
 
   const [showModal, setShowModal] = useState(false);
@@ -9,7 +9,7 @@ function Posts({ posts, viewtoggle, setViewToggle }) {
   const [alink, setALink] = useState();
   const [showLinks, setShowLinks] = useState(false);
   const [showTP, setShowTP] = useState("Show posts");
-  const [like, setLike] = useState(true);
+  const [like, setLike] = useState(false);
   const arr = [];
 
   function deletePost(id) {
@@ -32,14 +32,12 @@ function Posts({ posts, viewtoggle, setViewToggle }) {
   }
   return (
     <div className="Postlayout">
-      {showLinks && (
-        <Link alink={alink} setShowLinks={setShowLinks} showLinks={showLinks} />
-      )}
       <h1
         className="heading-showPosts"
         onClick={() => {
           setShowTP();
           setShowModal(true);
+          setShowFeedback(true);
           setDef(posts.slice(0, postsPerPage));
         }}
       >
@@ -50,7 +48,7 @@ function Posts({ posts, viewtoggle, setViewToggle }) {
         return (
           <div className="demo">
             <div className="posts">
-              <div className={viewtoggle}>
+              <div className="info-posts">
                 <h3
                   key={id}
                   onClick={() => {

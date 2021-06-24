@@ -8,7 +8,7 @@ const url = "https://api.first.org/data/v1/news";
 function App() {
   const [posts, setPost] = useState([]);
 
-  const [viewtoggle, setViewToggle] = useState("info-posts");
+  const [showFeedback, setShowFeedback] = useState(false);
 
   const totalNoOfPosts = 30;
   const fetchData = async () => {
@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-
+  // console.log(showFeedback);
   return (
     <>
       <h1 className="heading-post">
@@ -30,13 +30,16 @@ function App() {
       </h1>
       <div className="container">
         <div className="feedback">
-          <Feedback viewtoggle={viewtoggle} setViewToggle={setViewToggle} />
+          <Feedback
+            showFeedback={showFeedback}
+            setShowFeedback={setShowFeedback}
+          />
         </div>
         <div className="posts">
           <Posts
             posts={posts}
-            viewtoggle={viewtoggle}
-            setViewToggle={setViewToggle}
+            showFeedback={showFeedback}
+            setShowFeedback={setShowFeedback}
           />
         </div>
       </div>
