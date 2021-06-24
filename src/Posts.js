@@ -32,6 +32,9 @@ function Posts({ posts, showFeedback, setShowFeedback }) {
   }
   return (
     <div className="Postlayout">
+      {showLinks && (
+        <Link alink={alink} setShowLinks={setShowLinks} showLinks={showLinks} />
+      )}
       <h1
         className="heading-showPosts"
         onClick={() => {
@@ -52,6 +55,7 @@ function Posts({ posts, showFeedback, setShowFeedback }) {
                 <h3
                   key={id}
                   onClick={() => {
+                    console.log(link);
                     setShowModal(true);
                     setShowLinks(true);
                     setALink(link);
