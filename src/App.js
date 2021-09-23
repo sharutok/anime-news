@@ -5,6 +5,7 @@ import Feedback from "./Feedback";
 import { useEffect, useState } from "react";
 const url = "https://api.first.org/data/v1/news";
 
+
 function App() {
   const [posts, setPost] = useState([]);
 
@@ -14,8 +15,9 @@ function App() {
   const fetchData = async () => {
     const res = await fetch(url);
     const dataModel = await res.json();
+    
     setPost(dataModel.data.slice(0, totalNoOfPosts));
-    // console.log(dataModel.data.slice(0, 15));
+    console.log(dataModel);
   };
   useEffect(() => {
     fetchData();

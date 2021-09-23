@@ -27,9 +27,9 @@ function Posts({ posts, showFeedback, setShowFeedback }) {
   for (let i = 1; i <= posts.length / postsPerPage; i++) {
     arr.push(i);
   }
-  function likepost(id) {
-    setLike(!like);
-  }
+  // function likepost(id) {
+  //   setLike(!like);
+  // }
   return (
     <div className="Postlayout">
       {showLinks && (
@@ -68,13 +68,13 @@ function Posts({ posts, showFeedback, setShowFeedback }) {
                   {like ? (
                     <FcLike
                       onClick={() => {
-                        setLike(!like);
+                        // setLike(!like);
                       }}
                     />
                   ) : (
                     <FcLikePlaceholder
                       onClick={() => {
-                        setLike(!like);
+                        // setLike(!like);
                       }}
                     />
                   )}

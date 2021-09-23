@@ -19,9 +19,12 @@ function Link({ alink, setShowLinks }) {
         frameBorder="0"
         width="1100"
         height="700"
+        allow="true"
+
       >
         {" "}
       </iframe>
+          
     </div>
   );
 }
